@@ -1,0 +1,63 @@
+// C++ code
+//
+#include<LiquidCrystal.h>
+const int LM35=A0;
+const int motor=12;
+const int buzzer=7;
+int dt=10;
+int threshold=400; // threshold moisture
+LiquidCrystal lcd(13, 11, 5, 4, 3, 2);
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(motor, OUTPUT);
+  pinMode(buzzer, OUTPUT);
+  lcd.begin(16, 2);
+  delay(dt);
+}
+
+void loop()
+{
+  int value=analogRead(LM35);
+  float Moisture=value*1000.0/1023.0;
+  if(Moisture<threshold){    
+  	digitalWrite(motor, HIGH);
+    
+    lcd.setCursor(0,0);
+    lcd.print("motor is turned");
+    lcd.setCursor(0,1);
+    lcd.print("ON ");
+    lcd.setCursor(4,1);
+    lcd.print("M=");
+    lcd.setCursor(7,1);
+    lcd.print(Moisture);
+     
+  }
+  if(Moisture>threshold)
+  {
+    //if(threshold+20>Moisture)
+    //{tone(buzzer, 450);
+                 // delay(500); }
+    digitalWrite(motor, LOW);
+    lcd.setCursor(0,0);
+    lcd.print("motor is turned");
+    lcd.setCursor(0,1);
+    lcd.print("OFF");
+    lcd.setCursor(4,1);
+    lcd.print("M=");
+    lcd.setCursor(7,1);
+    lcd.print(Moisture);
+    
+    
+  }
+  
+  //if((threshold-10<Moisture)&&(Moisture<threshold+10))
+  //{tone(buzzer, 450);
+    //delay(500);
+  //if(threshold==Moisture)
+  //{tone(buzzer, 450);
+   // delay(500);}
+   
+  
+  delay(dt);
+}
