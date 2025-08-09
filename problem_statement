@@ -1,3 +1,5 @@
 Agriculture Monitoring System: The goal is to design an Arduino Based system to monitor and control the environmental parameter like Moisture, Temperature, Humidity of soil to optimize Agriculture Practices.
 
 You guys will have to use Moisture Sensor, Temperature and Humidity Sensor(DHT11/DHT22) to determine the respective parameters and when the moisture content is below the threshold value the dc motor which acts as a water pump should turn on which is controlled by a relay module and when the Moisture content is more than the threshold value the DC motor should turn off. The data predicted by the sensors should be displayed on a LCD . When the DC motor is turned on and off the LCD should display "Water Pump Turned On" and "Water Pump Turned off" and a buzzer sound when the motor is turned on and off .
+
+https://www.tinkercad.com/things/3jXqr8HG2Nq-soil-moisture-motor/editel?returnTo=%2Fthings%2F3jXqr8HG2Nq-ramkiran
